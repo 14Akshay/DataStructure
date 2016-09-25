@@ -14,7 +14,6 @@ public class LinkedList {
 		if(head==null)
 		{
 			head = new Node(data);
-			//head.data=data;
 		}
 		else{
 			while(head.next!=null)
@@ -27,6 +26,45 @@ public class LinkedList {
 		}
 		return false;
 	}
+	
+	public Node addElementAtFirst(int data)
+	{
+		if(head!=null)
+		{
+			Node frontNode = new Node(data);
+			frontNode.next=head;
+			head = frontNode;
+		}
+		else
+		{
+			head = new Node(data);
+		}
+		return head;
+	}
+	
+	public Node reverseLinkedList() //using temporary nodes
+	{
+		
+		Node current=head;
+		Node prev = null;
+		Node nextProcess;
+		last = head;
+		while(current !=null)
+		{
+			nextProcess = current.next;
+			current.next= prev;
+			prev= current;
+			current = nextProcess;
+		}
+		head = prev;
+		return head;
+	}
+	
+	public Node reverseLinkedListRecursive()
+	{
+		return null;
+	}
+	
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
@@ -36,6 +74,17 @@ public class LinkedList {
 		list.addElement(3);
 		list.addElement(4);
 		list.addElement(5);
+		list.addElementAtFirst(22);
+		list.reverseLinkedList();
+		LinkedList list2 = new LinkedList();
+		
+		list2.addElement(11);
+		list2.addElement(12);
+		list2.addElement(13);
+		list2.addElement(14);
+		list2.addElement(15);
+		list2.addElementAtFirst(33);
+
 		System.out.println();
 
 
