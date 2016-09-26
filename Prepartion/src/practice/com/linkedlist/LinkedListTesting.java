@@ -49,6 +49,8 @@ public class LinkedListTesting {
 		int size2 = list2.getSize();
 		System.out.println();
 
+		System.out.println("middle::"+list.findMiddleElement().data);
+		System.out.println("middle::"+list2.findMiddleElement().data);
 	}
 
 }

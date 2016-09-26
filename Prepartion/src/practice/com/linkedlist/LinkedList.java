@@ -112,13 +112,27 @@ public class LinkedList {
 	
 	public int getSize()
 	{
+		Node tmp = head;
 		int size = 0;
 		while(head!=null)
 		{
 			head = head.next;
 			size++;
 		}
+		head=tmp;
 		return size;
+	}
+	
+	public Node findMiddleElement()
+	{
+		Node fast = head;
+		Node slow = head;
+		while(fast!=null && fast.next!=null)
+		{
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;
 	}
 
 
