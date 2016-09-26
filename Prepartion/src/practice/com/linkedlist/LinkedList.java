@@ -26,7 +26,7 @@ public class LinkedList {
 		}
 		return false;
 	}
-	
+
 	public Node addElementAtFirst(int data)
 	{
 		if(head!=null)
@@ -59,35 +59,69 @@ public class LinkedList {
 		head = prev;
 		return head;
 	}
+
+	public Node reverseLinkedListRecursive(Node head)
+	{
+		if(head == null || head.next==null)
+			return head;
+		
+		Node reverseNode = reverseLinkedListRecursive(head.next);
+		head.next.next=head;
+		head.next=null;
+		
+		return reverseNode;
+	}
 	
 	public Node reverseLinkedListRecursive()
 	{
+		Node temp = head;
+		//System.out.println(temp.data+"-->");
+		while(temp!=null)
+		{
+			System.out.print(temp.data);
+			if(temp.next!=null)
+				System.out.print("-->");
+			temp = temp.next;
+		}
+		System.out.println();
+	}
+	
+	public Node findNode(int data)
+	{
+
+		while(head!=null)
+		{
+			if(head.data==data)
+				return head;
+
+			head= head.next;
+		}
 		return null;
 	}
 	
-
-	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
-
-		list.addElement(1);
-		list.addElement(2);
-		list.addElement(3);
-		list.addElement(4);
-		list.addElement(5);
-		list.addElementAtFirst(22);
-		list.reverseLinkedList();
-		LinkedList list2 = new LinkedList();
+	public Node findNodeRecursive(Node head,int data)
+	{
+		if(head==null)
+			return null;
+		if(head.data==data)
+			return head;
 		
-		list2.addElement(11);
-		list2.addElement(12);
-		list2.addElement(13);
-		list2.addElement(14);
-		list2.addElement(15);
-		list2.addElementAtFirst(33);
-
-		System.out.println();
-
-
+		Node ans = findNodeRecursive(head.next,data);
+		return ans;
 	}
+	
+	public int getSize()
+	{
+		int size = 0;
+		while(head!=null)
+		{
+			head = head.next;
+			size++;
+		}
+		return size;
+	}
+
+
+	
 
 }
