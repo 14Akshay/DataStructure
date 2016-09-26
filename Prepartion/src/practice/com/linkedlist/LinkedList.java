@@ -41,10 +41,10 @@ public class LinkedList {
 		}
 		return head;
 	}
-	
+
 	public Node reverseLinkedList() //using temporary nodes
 	{
-		
+
 		Node current=head;
 		Node prev = null;
 		Node nextProcess;
@@ -72,7 +72,7 @@ public class LinkedList {
 		return reverseNode;
 	}
 	
-	public Node reverseLinkedListRecursive()
+	public void printList()
 	{
 		Node temp = head;
 		//System.out.println(temp.data+"-->");
